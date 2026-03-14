@@ -1,0 +1,10 @@
+<ehcache xmlns="http://www.ehcache.org/schema/ehcache"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.ehcache.org/schema/ehcache
+                             http://www.ehcache.org/schema/ehcache/ehcache-2.10.xsd">
+    <cache name="itemsCache"
+          maxEntriesLocalHeap="1000"     <!--LRU -->
+           timeToLiveSeconds="300"
+           timeToIdleSeconds="300"
+           eternal="false" />
+</ehcache>
