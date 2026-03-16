@@ -39,10 +39,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker Image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/demoswagger:${{ github.sha }} .
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/demoswagger:${{ github.sha }} .
 
       - name: Push Docker Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/demoswagger:latest
+        run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/demoswagger:latest
 
       - name: Deploy to EC2
         uses: appleboy/ssh-action@master
@@ -53,5 +53,5 @@ jobs:
           script: |
             docker stop demoswagger || true
             docker rm demoswagger || true
-            docker pull ${{ secrets.DOCKER_USERNAME }}/demoswagger:latest
-            docker run -d -p 8084:8084 --name demoswagger ${{ secrets.DOCKER_USERNAME }}/demoswagger:latest
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/demoswagger:latest
+            docker run -d -p 8084:8084 --name demoswagger ${{ secrets.DOCKERHUB_USERNAME }}/demoswagger:latest
