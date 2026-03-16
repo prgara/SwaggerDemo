@@ -25,11 +25,11 @@ jobs:
         working-directory: SwaggerDemo
 
 
-      - name: Sonar Scan
-        run: mvn sonar:sonar \
-          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
-          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-        working-directory: SwaggerDemo
+#      - name: Sonar Scan
+#        run: mvn sonar:sonar \
+#          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
+#          -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+#        working-directory: SwaggerDemo
 
 
       - name: Login to DockerHub
