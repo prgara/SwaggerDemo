@@ -40,6 +40,7 @@ jobs:
 
       - name: Build Docker Image
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/demoswagger:${{ github.sha }} .
+        working-directory: SwaggerDemo
 
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/demoswagger:${{ github.sha }}
