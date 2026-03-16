@@ -22,11 +22,15 @@ jobs:
 
       - name: Build Jar
         run: mvn clean package -DskipTests
+        working-directory: SwaggerDemo
+
 
       - name: Sonar Scan
         run: mvn sonar:sonar \
           -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        working-directory: SwaggerDemo
+
 
       - name: Login to DockerHub
         uses: docker/login-action@v2
